@@ -6,6 +6,7 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
+from scrapy.exceptions import IgnoreRequest
 
 
 class SpiderNestSpiderMiddleware(object):
@@ -78,7 +79,11 @@ class SpiderNestDownloaderMiddleware(object):
         # - or return a Request object
         # - or raise IgnoreRequest: process_exception() methods of
         #   installed downloader middleware will be called
-        return None
+
+        if spider.continue_requesting:
+            return None
+        else:
+            raise IgnoreRequest()
 
     def process_response(self, request, response, spider):
         # Called with the response returned from the downloader.
@@ -87,7 +92,10 @@ class SpiderNestDownloaderMiddleware(object):
         # - return a Response object
         # - return a Request object
         # - or raise IgnoreRequest
-        return response
+        if spider.continue_requesting:
+            return response
+        else:
+            raise IgnoreRequest()
 
     def process_exception(self, request, exception, spider):
         # Called when a download handler or a process_request()
