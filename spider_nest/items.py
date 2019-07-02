@@ -19,3 +19,9 @@ class BookItem(scrapy.Item):
     tax = scrapy.Field()
     availability = scrapy.Field()
     reviews = scrapy.Field()
+
+
+class QuoteItem(scrapy.Item):
+    text = scrapy.Field()
+    author = scrapy.Field()
+    tags = scrapy.Field()

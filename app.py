@@ -7,6 +7,7 @@ from scrapy.settings import Settings
 
 from spider_nest import settings
 from spider_nest.spiders.book_spider import BookSpider
+from spider_nest.spiders.quote_spider import QuoteSpider
 
 
 def execute_spiders_synchronous():
@@ -32,6 +33,7 @@ def execute_spiders():
     # Initialize the crawler process and add the spiders
     crawler_process = CrawlerProcess(settings=crawler_settings)
     crawler_process.crawl(BookSpider)
+    crawler_process.crawl(QuoteSpider)
 
     # Start the process and close it at finish
     crawler_process.start()

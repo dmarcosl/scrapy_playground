@@ -21,7 +21,9 @@ class SpiderNestPipeline(object):
 
     def close_spider(self, spider):
         spider.set_end_time()
-        self.exporter.close()
+
+        if self.exporter.is_started():
+            self.exporter.close()
 
         print('Requests: {}'.format(spider.request_count))
         print('Items: {}'.format(spider.item_count))
