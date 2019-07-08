@@ -38,8 +38,6 @@ class QuoteSpider(scrapy.Spider, SpiderHandler):
 
     def parse(self, response):
 
-        self.increase_request_count()
-
         for item in response.xpath('//div[@class="quote"]'):
             yield from self.extract_quote(item)
 
