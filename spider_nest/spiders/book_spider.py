@@ -39,8 +39,6 @@ class BookSpider(scrapy.Spider, SpiderHandler):
 
     def parse(self, response):
 
-        self.increase_request_count()
-
         for item_url in response.xpath('//div[@class="image_container"]/a/@href').extract():
             if 'catalogue' in item_url:
                 url = self.url_base + item_url
