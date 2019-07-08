@@ -1,6 +1,6 @@
 # Scrapy Playground
 
-Example project with an implementation of the [Scrapy library](https://github.com/scrapy/scrapy) executed from code, handling code and request errors, and exporting the extracted data to a CSV file.
+Example project with an implementation of the [Scrapy Framework](https://github.com/scrapy/scrapy) executed from code, handling code and request errors, and exporting the extracted data to a CSV file.
 
 ## Description
 
@@ -19,7 +19,7 @@ When the spider finish its execution, it's executed the `close_spider()` functio
 Clone the repository
 
 ```
-git clone https://github.com/dmarcosl/scrapy_playground
+git clone https://github.com/dmarcosl/scrapy-playground
 ```
 
 Create a virtual environment and activate it
